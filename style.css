@@ -40,7 +40,7 @@ font-family: 'Poppins', sans-serif;
   top: 3%;
   display: none;
   right: 5%;
-  z-index: 100;
+  /* z-index: 100; */
   color: black;
   border: none;
   outline: none;
