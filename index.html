@@ -7,6 +7,13 @@
     <title>Recipe App</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Chicle&family=Lobster&family=Pirata+One&family=Poppins:ital,wght@0,200;0,300;0,500;1,400&family=UnifrakturCook&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="css/fontawesome.min.css" />
     <script src="index.js" defer></script>
   </head>
@@ -14,16 +21,27 @@
     <header>
       <div class="headerWrapper">
         <div class="brand-container">Foodies</div>
-        <div class="input-container">
-          <input type="search" name="" id="search-term" /><button class="btn">
-            <i id="search-btn" class="fas fa-search"></i>
-          </button>
-        </div>
+        <form id="form" action="">
+          <div class="input-container">
+            <input
+              type="search"
+              name=""
+              id="search-term"
+              autocomplete="off"
+            /><button class="btn">
+              <i id="search-btn" class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
       </div>
     </header>
     <main class="mainContainer">
       <section class="meal-container">
         <h1 id="title">Favorite Meal</h1>
+      
+         <a class="reload" href=""><i class="fas fa-redo"></i>
+          </a> 
+        
         <div class="dishWrapper" id="dishWrapper">
           <!-- <--<div class="textAlign">
             <div class="image-wrapper">

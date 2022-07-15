@@ -9,14 +9,15 @@ li,body,html {
   padding: 0;
   margin: 0;
 }
+
+
 body {
       /* position: relative; */
   /* width: 100%; */
   /* height: 100vh; */
   /* background-color: rgb(216, 215, 209); */
   /* background-color: aqua; */
- font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+font-family: 'Poppins', sans-serif;
       /* background-color: yellow; */
 }
 
@@ -28,9 +29,28 @@ body {
     padding:  5rem 1rem  3rem;
   width: 100%;
   height: 150vh;
+  position: relative;
     /* position: relative; */
   /* background-color: blue; */
   background-color: whitesmoke;
+}
+
+.reload {
+  position: absolute;
+  top: 3%;
+  display: none;
+  right: 5%;
+  z-index: 100;
+  color: black;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.reload i{
+    font-weight: 900;
+  pointer-events: none;
 }
 .headerWrapper {
     background-color: whitesmoke;
@@ -70,7 +90,13 @@ justify-content: space-between;
   margin-left: 10px;
   outline: none;
 }
-
+.brand-container{
+font-family: 'Berkshire Swash', cursive;  letter-spacing: 2px;
+  font-size: 1.8rem;
+  color: rgb(122, 8, 46);
+  font-weight: bold;
+  text-shadow:  0 1px rgb(122, 8, 46);
+}
 
 /*** media query for header */
 
@@ -95,9 +121,21 @@ justify-content: space-between;
       box-shadow: 0px 0px 5px black;
     }
 
+        .reload {
+          position: absolute;
+          top: -5%;
+          right: 5%;
+          z-index: 100;
+          color: black;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          font-size: 1rem;
+        }
+
         .brand-container {
-          font-family: freehand521 BT;
-          letter-spacing: 2px;
+font-family: 'Berkshire Swash', cursive;          
+letter-spacing: 2px;
           font-size: 1.4rem !important;
           color: rgb(122, 8, 46);
           font-weight: bold;
@@ -160,7 +198,7 @@ margin: 0;
    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.534), 1px  1px 10px  rgba(0, 0, 0, 0.514);
   border-radius: 10px;
   font-family: inherit;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: relative;
 }
 
@@ -186,7 +224,7 @@ margin: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.534), 1px 1px 10px rgba(0, 0, 0, 0.514);
     border-radius: 10px;
     font-family: inherit;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
   }
 
@@ -373,14 +411,6 @@ margin: 0;
   position: relative;
 }
 
-.brand-container{
-  font-family:freehand521 BT ;
-  letter-spacing: 2px;
-  font-size: 1.8rem;
-  color: rgb(122, 8, 46);
-  font-weight: bold;
-  text-shadow:  0 1px rgb(122, 8, 46);
-}
 
 /* .meal>*{
   display: block;
@@ -491,6 +521,7 @@ p.extra-font-size{
   color: rgb(170, 5, 60);
 }
 
+
 /*** media query for meals + innerElements */
 
 @media screen and (max-width: 720px){
@@ -516,7 +547,7 @@ align-items: center;
 justify-content: space-between;
 width: 100%;
 height: fit-content;
-background-color:rgb(170, 5, 60);
+/* background-color:rgb(170, 5, 60); */
 /* overflow-x:hidden;*/
 position: relative;
 padding: 25px;
@@ -616,12 +647,15 @@ color: rgb(170, 5, 60);
 
 
 .search-output {
+  /* grid-template-columns: repeat(3,1fr); */
+  
+  
   width: 100%;
-  height: fit-content;
-  /* background-color: #d4d0d0; */
+  height: max-content;
+   background-color: #d4d0d0; 
   display: flex;
-  /* column-gap: 5px; */
-  /* row-gap: 20px; */
+   column-gap: 5px; 
+   row-gap: 20px; 
   flex-wrap: wrap;
   padding: 1rem;
   align-items: center;
@@ -652,9 +686,18 @@ color: rgb(170, 5, 60);
 }
 
 small {
-  padding: 10rem;
+  /* padding: 10rem; */
   width: 100%;
-  text-align: center;
+  display: flex;
+  /* margin-top: -50px; */
+  align-items: flex-start;
+  justify-content: center;
+  /* position: absolute; */
+  /* transform: translateY(-50%); */
+  /* flex-direction: column; */
+  /* text-align: center; */
+  bottom: 45%;
+  z-index: 4;
   font-size: 2rem;
 
 }
@@ -664,8 +707,8 @@ small {
 @media screen and (max-width: 720px){
   .search-output {
       width: 100%;
-      height: fit-content;
-      /* background-color: #13cc2c; */
+  height: 100vh;      
+  /* background-color: #13cc2c; */
       display: flex;
       /* flex-direction: column; */
       /* column-gap: ; */
@@ -703,10 +746,15 @@ small {
     }
   
     small {
-      padding: 10rem;
+      padding: 10rem; 
       width: 100%;
-      text-align: center;
       font-size: 2rem;
+      display: flex;
+      bottom: 45%;
+text-align: center;
+       margin-top: -50px; 
+        align-items: center;
+        justify-content: center;
   
     }
 

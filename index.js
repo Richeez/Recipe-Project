@@ -15,8 +15,13 @@ let closePopUpBtn = document.querySelector("#close-popup");
 const mealInfo = document.getElementById("meal-info");
 const popUpContainer = document.querySelector(".popup-container");
 
- let mealHeader = document.querySelector(".meal-header");
+let mealHeader = document.querySelector(".meal-header");
+ 
+const form = document.querySelector("#form");
+ 
+ const reload = document.querySelector(".reload");
 // console.log(popUpContainer);
+
 
 getRandomMeal = async () => {
   const  response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
@@ -236,14 +241,50 @@ const addFavMeal = (mealData) => {
 
 };
 
-    searchBtn.addEventListener("click", async () => { 
-    searchOutput.innerHTML = "";//clearing container
+function search() {
+  
+  searchBtn.addEventListener("click", async () => { 
+  searchOutput.innerHTML = "";//clearing container
+  const search = searchTerm.value;
+  const meals = await getMealBySearch(search);
+    title.innerText = "Search Result";
+    title.style.marginTop = "100px";
+    reload.style.display = 'block'
+      dishWrapper.style.height = "0"
+  
+    dishWrapper.style.opacity="0"
+  searchOutput.style.backgroundColor =" #e4e0e0"
+  searchOutput.classList.add('overflow-attr')
+    
+  if (meals) {
+    
+    meals.forEach((meal) => {
+      addResult(meal)
+      
+    });
+  } else {
+  searchOutput.innerHTML = "<small>Meal is not available.</small>"
+  }
+  }); 
+
+}  
+
+search();
+
+form.addEventListener('submit', async  (e) => { 
+  e.preventDefault();
+  
+
+  searchOutput.innerHTML = "";//clearing container
     const search = searchTerm.value;
     const meals = await getMealBySearch(search);
       title.innerText = "Search Result";
       title.style.marginTop = "100px";
 
-      dishWrapper.style.opacity="0"
+  dishWrapper.style.opacity = "0"
+  dishWrapper.style.height = "0"
+  reload.style.display='block'
+
     searchOutput.style.backgroundColor =" #e4e0e0"
     searchOutput.classList.add('overflow-attr')
       
@@ -256,8 +297,8 @@ const addFavMeal = (mealData) => {
     } else {
     searchOutput.innerHTML = "<small>Meal is not available.</small>"
     }
-    }); 
-  
+});
+
 
 /* <div class="meal-info" id="meal-info">
         <h1>Title</h1>
